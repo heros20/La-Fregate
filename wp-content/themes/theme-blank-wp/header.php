@@ -35,7 +35,7 @@
 
    
     <!-- color -->
-    <link id="changeable-colors" rel="stylesheet" href="<?= get_template_directory_uri() ?>/assets/css/colors/orange.css" />
+    <link id="changeable-colors" rel="stylesheet" href="<?= get_template_directory_uri() ?>/assets/css/colors/red.css" />
     <script type="text/javascript">
         var stylesheet_directory_uri = "<?php echo get_stylesheet_directory_uri(); ?>";
     </script>
@@ -76,7 +76,8 @@
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="active"><a href="#banner">Accueil</a></li>
                                     <li><a href="#about">À propos</a></li>
-                                    <li><a href="#menu">Menu</a></li>
+                                    <li><a href="#menu_du_jour">Menu du jour</a></li>
+                                    <li><a href="#menu">Carte</a></li>
                                     <li><a href="#our_team">Notre team</a></li>
                                     <li><a href="#gallery">Gallerie</a></li>
                                     <li><a href="#reservation">Reservation</a></li>

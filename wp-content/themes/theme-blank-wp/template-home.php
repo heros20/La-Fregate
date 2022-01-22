@@ -1,7 +1,60 @@
 <?php
 /* Template Name: home  */
+$args = array(
+    'post_type' => 'menu_du_jour',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+    'order' => 'ASC'
+);
 
+$entree = array(
+    'post_type' => 'entree',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+    'order' => 'ASC'
+);
 
+$plats = array(
+    'post_type' => 'plats',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+    'order' => 'ASC'
+);
+
+$desserts = array(
+    'post_type' => 'desserts',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+    'order' => 'ASC'
+);
+
+$boisson = array(
+    'post_type' => 'boisson',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+    'order' => 'ASC'
+);
+
+$team = array(
+    'post_type' => 'equipier',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+    'order' => 'ASC'
+);
+
+$gallerie = array(
+    'post_type' => 'gallerie',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+    'order' => 'ASC'
+);
 get_header();
 ?>
 
@@ -63,8 +116,8 @@ get_header();
         <!-- end container -->
     </div>
 
-    <div class="special-menu pad-top-100 parallax">
-        <div class="container">
+    <div id="menu_du_jour" class="special-menu pad-top-100 parallax">
+        <div  class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
@@ -73,76 +126,30 @@ get_header();
                     </div>
                     <div class="special-box">
                         <div id="owl-demo">
-                            <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
-                                    <div class="item-info">
-                                        <div class="headline">
-                                            SALMON STEAK
-                                            <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
+                            <?php
+                            $the_query = new WP_Query($args);
+                            // The Loop
+                            if ($the_query->have_posts()) { ?>
+                                <?php while ($the_query->have_posts()) {
+                                    $the_query->the_post(); ?>
+                                    <?php $image = get_the_post_thumbnail_url(get_the_ID(), 'slider-img'); 
+                                    $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');?>
+                                     <div class="item item-type-zoom">
+                                        <a href="#" class="item-hover">
+                                            <div class="item-info">
+                                                <div class="headline">
+                                                   <?= get_the_title() ?>
+                                                    <div class="line"></div>
+                                                    <div class="dit-line"><?= get_the_content() ?></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="item-img">
+                                            <img src="<?=  $image ?>">
                                         </div>
                                     </div>
-                                </a>
-                                <div class="item-img">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/special-menu-1.jpg" alt="sp-menu">
-                                </div>
-                            </div>
-                            <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
-                                    <div class="item-info">
-                                        <div class="headline">
-                                            ITALIAN PIZZA
-                                            <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="item-img">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/special-menu-2.jpg" alt="sp-menu">
-                                </div>
-                            </div>
-                            <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
-                                    <div class="item-info">
-                                        <div class="headline">
-                                            VEG. ROLL
-                                            <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="item-img">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/special-menu-3.jpg" alt="sp-menu">
-                                </div>
-                            </div>
-                            <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
-                                    <div class="item-info">
-                                        <div class="headline">
-                                            SALMON STEAK
-                                            <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="item-img">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/special-menu-1.jpg" alt="sp-menu">
-                                </div>
-                            </div>
-                            <div class="item item-type-zoom">
-                                <a href="#" class="item-hover">
-                                    <div class="item-info">
-                                        <div class="headline">
-                                            VEG. ROLL
-                                            <div class="line"></div>
-                                            <div class="dit-line">Lorem ipsum dolor sit amet, consectetur adip aliqua. Ut enim ad minim venia.</div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="item-img">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/special-menu-2.jpg" alt="sp-menu">
-                                </div>
-                            </div>
+                                <?php  } ?>
+                            <?php } ?>
                         </div>
                     </div>
                     <!-- end special-box -->
@@ -186,324 +193,100 @@ get_header();
                         </div>
                         <div class="slider slider-single">
                             <div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>GARLIC BREAD</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
+                                <?php
+                                $the_query = new WP_Query($entree);
+                                // The Loop
+                                if ($the_query->have_posts()) { ?>
+                                    <?php while ($the_query->have_posts()) {
+                                        $the_query->the_post(); ?>
+                                        <?php $image = get_the_post_thumbnail_url(get_the_ID(), 'slider-img'); 
+                                        $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');?>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                        <div class="offer-item">
+                                            <img src="<?= $image ?>" alt="" class="img-responsive">
+                                            <div>
+                                                <h3> <?= get_the_title() ?> </h3>
+                                                <p>
+                                                <?= get_the_content() ?>
+                                                </p>
+                                            </div>
+                                            <span class="offer-price"> <?= get_the_excerpt() ?> </span>
                                         </div>
-                                        <span class="offer-price">$8.5</span>
                                     </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-02.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>MIXED SALAD</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$25</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-03.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>BBQ CHICKEN WINGS</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$10</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-01.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>GARLIC BREAD</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$8.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-02.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>MIXED SALAD</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$25</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-03.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>BBQ CHICKEN WINGS</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$10</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
+                                    <?php  } ?>
+                                <?php } ?>
                             </div>
                             <div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-04.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>MEAT FEAST PIZZA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
+                                <?php
+                                    $the_query = new WP_Query($plats);
+                                    // The Loop
+                                    if ($the_query->have_posts()) { ?>
+                                        <?php while ($the_query->have_posts()) {
+                                            $the_query->the_post(); ?>
+                                            <?php $image = get_the_post_thumbnail_url(get_the_ID(), 'slider-img'); 
+                                            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');?>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                            <div class="offer-item">
+                                                <img src="<?= $image ?>" alt="" class="img-responsive">
+                                                <div>
+                                                    <h3> <?= get_the_title() ?> </h3>
+                                                    <p>
+                                                    <?= get_the_content() ?>
+                                                    </p>
+                                                </div>
+                                                <span class="offer-price"> <?= get_the_excerpt() ?> </span>
+                                            </div>
                                         </div>
-                                        <span class="offer-price">$5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-05.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$15</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-06.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>SPICY MEATBALLS</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$6.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-04.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>MEAT FEAST PIZZA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-05.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$15</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-06.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>SPICY MEATBALLS</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$6.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
+                                        <?php  } ?>
+                                    <?php } ?>
                             </div>
                             <div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-07.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHOCOLATE FUDGECAKE</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
+                                <?php
+                                    $the_query = new WP_Query($desserts);
+                                    // The Loop
+                                    if ($the_query->have_posts()) { ?>
+                                        <?php while ($the_query->have_posts()) {
+                                            $the_query->the_post(); ?>
+                                            <?php $image = get_the_post_thumbnail_url(get_the_ID(), 'slider-img'); 
+                                            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');?>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                            <div class="offer-item">
+                                                <img src="<?= $image ?>" alt="" class="img-responsive">
+                                                <div>
+                                                    <h3> <?= get_the_title() ?> </h3>
+                                                    <p>
+                                                    <?= get_the_content() ?>
+                                                    </p>
+                                                </div>
+                                                <span class="offer-price"> <?= get_the_excerpt() ?> </span>
+                                            </div>
                                         </div>
-                                        <span class="offer-price">$4.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-08.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$9.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-09.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$10</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-07.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHOCOLATE FUDGECAKE</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$4.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-08.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$9.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-09.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$10</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
+                                        <?php  } ?>
+                                    <?php } ?>
                             </div>
                             <div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-10.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>MEAT FEAST PIZZA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
+                                <?php
+                                    $the_query = new WP_Query($boisson);
+                                    // The Loop
+                                    if ($the_query->have_posts()) { ?>
+                                        <?php while ($the_query->have_posts()) {
+                                            $the_query->the_post(); ?>
+                                            <?php $image = get_the_post_thumbnail_url(get_the_ID(), 'slider-img'); 
+                                            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');?>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                            <div class="offer-item">
+                                                <img src="<?= $image ?>" alt="" class="img-responsive">
+                                                <div>
+                                                    <h3> <?= get_the_title() ?> </h3>
+                                                    <p>
+                                                    <?= get_the_content() ?>
+                                                    </p>
+                                                </div>
+                                                <span class="offer-price"> <?= get_the_excerpt() ?> </span>
+                                            </div>
                                         </div>
-                                        <span class="offer-price">$12.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-09.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$9.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-08.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$5.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-10.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>MEAT FEAST PIZZA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$12.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-09.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$9.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
-                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
-                                    <div class="offer-item">
-                                        <img src="<?= get_template_directory_uri() ?>/assets/images/menu-item-thumbnail-08.jpg" alt="" class="img-responsive">
-                                        <div>
-                                            <h3>CHICKEN TIKKA MASALA</h3>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis eleifend dapibus.
-                                            </p>
-                                        </div>
-                                        <span class="offer-price">$5.5</span>
-                                    </div>
-                                </div>
-                                <!-- end col -->
+                                        <?php  } ?>
+                                    <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -529,58 +312,33 @@ get_header();
                     </div>
                     <div class="team-box">
 
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="sf-team">
-                                    <div class="thumb">
-                                        <a href="#"><img src="<?= get_template_directory_uri() ?>/assets/images/staff-01.jpg" alt=""></a>
+                        <div class="row flex_row">
+                            <?php
+                            $the_query = new WP_Query($team);
+                            // The Loop
+                            if ($the_query->have_posts()) { ?>
+                                <?php while ($the_query->have_posts()) {
+                                    $the_query->the_post(); ?>
+                                    <?php $image = get_the_post_thumbnail_url(get_the_ID(), 'slider-img'); 
+                                    $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');?>
+                                    <div class="col-md-4 col-sm-6">
+                                        <div class="sf-team">
+                                            <div class="thumb">
+                                                <a href="#"><img src="<?= $image ?>" alt=""></a>
+                                            </div>
+                                            <div class="text-col">
+                                                <h3><?= get_the_title() ?></h3>
+                                                <p><?= get_the_content() ?></p>
+                                                <!-- <ul class="team-social">
+                                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="text-col">
-                                        <h3>John Doggett</h3>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
-                                        <ul class="team-social">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
-                            <div class="col-md-4 col-sm-6">
-                                <div class="sf-team">
-                                    <div class="thumb">
-                                        <a href="#"><img src="<?= get_template_directory_uri() ?>/assets/images/staff-02.jpg" alt=""></a>
-                                    </div>
-                                    <div class="text-col">
-                                        <h3>Jeffrey Spender</h3>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
-                                        <ul class="team-social">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
-                            <div class="col-md-4 col-sm-6">
-                                <div class="sf-team">
-                                    <div class="thumb">
-                                        <a href="#"><img src="<?= get_template_directory_uri() ?>/assets/images/staff-03.jpg" alt=""></a>
-                                    </div>
-                                    <div class="text-col">
-                                        <h3>Monica Reyes</h3>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Aenean commodo ligula.</p>
-                                        <ul class="team-social">
-                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end col -->
+                                <?php  } ?>
+                            <?php } ?>
                         </div>
                         <!-- end row -->
 
@@ -607,207 +365,38 @@ get_header();
                         <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available </p>
                     </div>
                     <div class="gal-container clearfix">
-                        <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#1">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_01.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="1" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_01.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 1 one on my Gallery</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#2">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_02.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="2" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_02.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 2 one on my Gallery</h4>
+                        <?php
+                            $the_query = new WP_Query($gallerie);
+                            // The Loop
+                            if ($the_query->have_posts()) { ?>
+                                <?php while ($the_query->have_posts()) {
+                                    $the_query->the_post(); ?>
+                                    <?php $image = get_the_post_thumbnail_url(get_the_ID(), 'slider-img'); 
+                                    $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');?>
+                                    <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+                                        <div class="box">
+                                            <a href="#" data-toggle="modal" data-target="#<?= get_the_excerpt() ?>">
+                                                <img src="<?= $image ?>" alt="" />
+                                            </a>
+                                            <div class="modal fade" id="<?= get_the_excerpt() ?>" tabindex="-1" role="dialog">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                        <div class="modal-body">
+                                                            <img src="<?= $image ?>" alt="" />
+                                                        </div>
+                                                        <div class="col-md-12 description">
+                                                            <h4><?= get_the_content() ?></h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#3">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_03.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="3" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_03.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 3 one on my Gallery</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#4">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_04.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="4" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_04.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 4 one on my Gallery</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#5">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_05.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="5" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_05.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 5 one on my Gallery</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#9">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_06.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="9" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_06.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 6 one on my Gallery</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#10">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_07.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="10" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_07.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 7 one on my Gallery</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#11">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_08.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="11" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_08.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 8 one on my Gallery</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#12">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_09.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="12" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_09.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 9 one on my Gallery</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
-                            <div class="box">
-                                <a href="#" data-toggle="modal" data-target="#13">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_10.jpg" alt="" />
-                                </a>
-                                <div class="modal fade" id="13" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            <div class="modal-body">
-                                                <img src="<?= get_template_directory_uri() ?>/assets/images/gallery_10.jpg" alt="" />
-                                            </div>
-                                            <div class="col-md-12 description">
-                                                <h4>This is the 10 one on my Gallery</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                <?php  } ?>
+                        <?php } ?>
                     </div>
+                </div>
                     <!-- end gal-container -->
                 </div>
                 <!-- end col -->
@@ -835,79 +424,122 @@ get_header();
                         <h4 class="form-title">BOOKING FORM</h4>
                         <p>PLEASE FILL OUT ALL REQUIRED* FIELDS. THANKS!</p>
 
-                        <form id="contact-form" method="post" class="reservations-box" name="contactform" action="mail.php">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <input type="text" name="form_name" id="form_name" placeholder="Name" required="required" data-error="Firstname is required.">
-                                </div>
+                        <?php
+                        $errors = array();
+                        $success = false;
+                        
+                        if (!empty($_POST['submitted'])) {
+                            // FAILLE XSS
+                        
+                            $nom = failleXSS('nom');
+                            $email = failleXSS('email');
+                            $nbrecouvert = failleXSS('nbrecouvert');
+                            $date = failleXSS('date');
+                            $phone = failleXSS('phone');
+                        
+                            // fonction pour afficher les erreurs eventuelles
+                            $errors = validForm($errors, $nom, 'nom');
+                            $errors = validEmail($errors, $email, 'email', 2, 50);
+                            $errors = validNumber($errors, $nbrecouvert, 'nbrecouvert');
+                            $errors = validDate($errors, $date, 'date');
+                            $errors = validPhone($errors, $phone, 'phone');
+                            
+                        
+                            if (count($errors) == 0) {
+                                global $wpdb;
+                                $table = $wpdb->prefix .'reservation';
+                                $table2 = $wpdb->prefix.'client';
+                                $wpdb->insert(
+                                    $table2,
+                                    array(
+                                        'nom' => $nom,
+                                        'numero' => $phone,
+                                        'email' => $email,
+                                        'created_at' => current_time('mysql')
+                                    ),
+                                    array(
+                                        '%s',
+                                    )
+                                );
+                                $wpdb->insert(  
+                                    $table,
+                                    array(
+                                        'id_client' => $wpdb->insert_id,
+                                        'hours' => $date,
+                                        'nbrecouvert' => $nbrecouvert,
+                                        'created_at' => current_time('mysql')
+                                    ),
+                                    array(
+                                        '%s',
+                                    )
+                                );
+                                $success = true;
+                            }
+                        }
+                        
+                        if($success == true){ ?>
+                            <div id="formincription">
+                                 <p>Merci d'avoir réservé, nous vous confirmerons celle-ci dans les plus brefs délais</p>
                             </div>
-                            <!-- end col -->
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <input type="email" name="email" id="email" placeholder="E-Mail ID" required="required" data-error="E-mail id is required.">
+                            <?php $message = "Nouvelle reservation \r\n au nom de : ".$_POST['nom']."\r\n nombre de couvert : ".$_POST['nbrecouvert']."\r\n reservation le : ".date('d/m/Y  H:i',strtotime($_POST['date']));
+                                mail('heros40@hotmail.fr', 'Reservation Croq art cafe', $message);
+                                $messageClient = "Votre reservation a bien ete transmise au restaurant";
+                                mail($_POST['email'], 'Reservation Croq art cafe', $messageClient);
+                            ?>
+                            
+                        <?php } else { ?>
+                        <form id="formincription" method="post" class="reservations-box" name="contactform" action="" novalidate>
+                            
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-box">
+                                        <input type="text" name="nom" id="nom" placeholder="Votre nom..." value="<?php if (!empty($_POST['nom'])) { echo $_POST['nom']; } ?>">
+                                        <p><span class="error"><?php if (!empty($errors['nom'])) { echo $errors['nom']; } ?><span></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- end col -->
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <input type="text" name="phone" id="phone" placeholder="contact no.">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-box">
+                                        <input type="email" name="email" id="email" placeholder="Votre email..." value="<?php if (!empty($_POST['email'])) {echo $_POST['email']; } ?>">
+                                        <p><span class="error"><?php if (!empty($errors['email'])) {echo $errors['email'];  } ?><span></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- end col -->
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-box">
-                                    <select name="no_of_persons" id="no_of_persons" class="selectpicker">
-                                        <option selected disabled>No. Of persons</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
+                                    <select name="nbrecouvert" id="nbrecouvert" class="selectpicker" value="<?php if (!empty($_POST['nbrecouvert'])) { echo $_POST['nbrecouvert'];} ?>">
+                                        <option selected disabled>Nombre de personnes</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
                                     </select>
                                 </div>
                             </div>
-                            <!-- end col -->
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-box">
-                                    <input type="text" name="date-picker" id="date-picker" placeholder="Date" required="required" data-error="Date is required." />
+                                    <input type="datetime-local" id="date" name="date" placeholder="Date de réservation">
+                                    <p><span class="error"><?php if (!empty($errors['date'])) {echo $errors['date']; } ?><span></p>
                                 </div>
                             </div>
-                            <!-- end col -->
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="form-box">
-                                    <input type="text" name="time-picker" id="time-picker" placeholder="Time" required="required" data-error="Time is required." />
+                                    <input type="text" pattern="[0-9]{10}" name="phone" placeholder="Votre numéro..." value="<?php if (!empty($_POST['phone'])) { echo $_POST['phone'];} ?>"/>
+                                    <p><span class="error"><?php if (!empty($errors['phone'])) {echo $errors['phone'];} ?><span></p>
                                 </div>
                             </div>
-                            <!-- end col -->
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <select name="preferred_food" id="preferred_food" class="selectpicker">
-                                        <option selected disabled>preferred food</option>
-                                        <option>Indian</option>
-                                        <option>Continental</option>
-                                        <option>Mexican</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- end col -->
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-box">
-                                    <select name="occasion" id="occasion" class="selectpicker">
-                                        <option selected disabled>Occasion</option>
-                                        <option>Wedding</option>
-                                        <option>Birthday</option>
-                                        <option>Anniversary</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- end col -->
-
+                                
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="reserve-book-btn text-center">
-                                    <button class="hvr-underline-from-center" type="submit" value="SEND" id="submit">BOOK MY TABLE </button>
+                                    <button class="hvr-underline-from-center" type="submit" id="btn_submit" name="submitted" value="Envoyer">Réserver </button>
                                 </div>
                             </div>
-                            <!-- end col -->
-                        </form>
-                        <!-- end form -->
+                        
+                            </form>
+                        <?php } ?>
                     </div>
                     <!-- end col -->
                 </div>

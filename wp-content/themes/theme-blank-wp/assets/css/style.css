@@ -1056,6 +1056,7 @@ html, body{ height: 100%; }
 .gal-item{
 	overflow: hidden;
 	padding: 3px;
+    width: 36em;
 }
 .gal-item .box{
 	height: 350px;
@@ -1087,6 +1088,7 @@ html, body{ height: 100%; }
     -webkit-transition: all 0.5s ease-in-out 0s;
     -moz-transition: all 0.5s ease-in-out 0s;
     transition: all 0.5s ease-in-out 0s;
+    width: 350px;
 }
 .gal-item a:hover:after{
 	opacity: 1;
@@ -1106,7 +1108,7 @@ html, body{ height: 100%; }
     color: #fff;
     z-index: 999;
     right: -12px;
-    top: -12px;
+    top: 0;
     border-radius: 50%;
     font-size: 15px;
     border: 2px solid #fff;
@@ -1886,8 +1888,8 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
 	cursor: pointer;
 }
 
-.orange-bg{
-	background: #e75b1e;
+.red-bg{
+	background: #7c0808;
 }
 
 .strong-blue-bg{
@@ -1901,3 +1903,15 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
 .vivid-yellow-bg{
 	background: #fdcb03;
 }
+.black-bg{
+	background: black;
+}
+
+.flex_row{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+

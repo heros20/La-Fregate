@@ -5,7 +5,7 @@
                     <div class="footer-in-main">
                         <div class="footer-logo">
                             <div class="text-center">
-                                <img src="<?= get_template_directory_uri() ?>/assets/images/logo.png" alt="" />
+                                <a class="scrollTop" href="#"><img src="<?= get_template_directory_uri() ?>/assets/images/logo.png" alt="" /></a> 
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -58,21 +58,21 @@
                         </div>
                         <!-- end col -->
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="footer-box-c">
+                            <div id="footer" class="footer-box-c">
                                 <h3>Contact Us</h3>
                                 <p>
                                     <i class="fa fa-map-signs" aria-hidden="true"></i>
-                                    <span>6 E Esplanade, St Albans VIC 3021, Australia</span>
+                                    <span>6 rue des inconnu, 14600, Honfleur</span>
                                 </p>
                                 <p>
                                     <i class="fa fa-mobile" aria-hidden="true"></i>
                                     <span>
-									+91 80005 89080 
+									02.31.xx.xx.xx
 								</span>
                                 </p>
                                 <p>
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span><a href="#">support@foodfunday.com</a></span>
+                                    <span><a href="#">support@xxxxxx.com</a></span>
                                 </p>
                             </div>
                             <!-- end footer-box-c -->
@@ -106,7 +106,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <h6 class="copy-title"> Copyright &copy; 2017 Food Funday is powered by <a href="#" target="_blank"></a> </h6>
+                            <h6 class="copy-title"> Copyright &copy;  <a href="#" target="_blank"></a> </h6>
                         </div>
                     </div>
                     <!-- end row -->
@@ -125,10 +125,11 @@
         <a class="panel-button gray2"><i class="fa fa-cog fa-spin fa-2x"></i></a>
         <div class="segment">
             <h4 class="gray2 normal no-padding">Color Scheme</h4>
-            <a title="orange" class="switcher orange-bg"></a>
+            <a title="red" class="switcher red-bg"></a>
             <a title="strong-blue" class="switcher strong-blue-bg"></a>
             <a title="moderate-green" class="switcher moderate-green-bg"></a>
             <a title="vivid-yellow" class="switcher vivid-yellow-bg"></a>
+            <a title="black" class="switcher black-bg"></a>
         </div>
     </section> 
     <script>
@@ -145,6 +146,19 @@
 				return false;
 			});
 
+            $(window).scroll(function(){
+				if ($(this).scrollTop() > 100) {
+					$('.scrollTop').fadeIn();
+				} else {
+					$('.scrollTop').fadeOut();
+				}
+			}); 
+			
+			$('.scrollTop').click(function(){
+				$("html, body").animate({ scrollTop: 0 }, 600);
+				return false;
+			});
+
             $( "#color-panel .panel-button" ).click(function(){
 			$( "#color-panel" ).toggleClass( "close-color-panel", "open-color-panel", 1000 );
 			$( "#color-panel" ).toggleClass( "open-color-panel", "close-color-panel", 1000 );
@@ -153,7 +167,7 @@
 		// Color Skins
 		$('.switcher').click(function(){
 			var title = jQuery(this).attr('title');		
-			jQuery('#changeable-colors').attr('href', ' ' + stylesheet_directory_uri + ' /assets/css/colors/' + title + '.css');				
+			jQuery('#changeable-colors').attr('href', stylesheet_directory_uri + '/assets/css/colors/' + title + '.css');				
 			return false;
 		});	
 
