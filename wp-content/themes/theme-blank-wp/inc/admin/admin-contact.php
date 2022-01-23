@@ -22,14 +22,14 @@ add_action( 'admin_menu', 'wpdocs_register_my_custom_contact_page' );
 function my_custom_menu_page_contact(){ 
     $adminUrl = admin_url().'admin.php?page=custompage_contact';
     global $wpdb;
-    $table = $wpdb->prefix.'message';
+    $table = $wpdb->prefix.'contact';
     $table2 = $wpdb->prefix.'client';
     $sdl =  "SELECT m.id AS id,m.message,m.created_at,c.id AS id_client,c.nom,c.email,c.numero FROM $table AS m
     LEFT JOIN $table2 AS c
     ON m.id_client = c.id
     ORDER BY m.created_at DESC";
     $contacts = $wpdb->get_results($sdl, ARRAY_A);
-    debug($contacts);
+    // debug($contacts);
     ?>
     <div class="wrap contact-wrap">
         <h1 class="wp-heading-inline">Contact</h1>
@@ -62,7 +62,7 @@ function my_custom_menu_page_contact(){
     if(!empty($_GET['id'])){
             $id = $_GET['id'];
             global $wpdb;
-            $table = $wpdb->prefix.'message';
+            $table = $wpdb->prefix.'contact';
             $sdl =  "SELECT * FROM $table WHERE id = $id ";
             $message = $wpdb->get_results($sdl, ARRAY_A);
 

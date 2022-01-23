@@ -10,32 +10,12 @@
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="footer-box-a">
-                                <h3>About Us</h3>
-                                <p>Aenean commodo ligula eget dolor aenean massa. Cum sociis nat penatibu set magnis dis parturient montes.</p>
+                                <h3>Réseau social</h3>
+                                <p>Le chef vous informe quotidiennement des changements de la carte et du menu, ne manquez pas votre plat favori!</p>
                                 <ul class="socials-box footer-socials pull-left">
                                     <li>
-                                        <a href="#">
+                                        <a target="_blank" href="https://www.facebook.com/La-Fregate-279235209380378/">
                                             <div class="social-circle-border"><i class="fa  fa-facebook"></i></div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="social-circle-border"><i class="fa fa-twitter"></i></div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="social-circle-border"><i class="fa fa-google-plus"></i></div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="social-circle-border"><i class="fa fa-pinterest"></i></div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="social-circle-border"><i class="fa fa-linkedin"></i></div>
                                         </a>
                                     </li>
                                 </ul>
@@ -46,12 +26,12 @@
                         <!-- end col -->
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="footer-box-b">
-                                <h3>New Menu</h3>
+                                <h3>Infos menu</h3>
                                 <ul>
-                                    <li><a href="#">Italian Bomba Sandwich</a></li>
-                                    <li><a href="#">Double Dose of Pork Belly</a></li>
-                                    <li><a href="#">Spicy Thai Noodles</a></li>
-                                    <li><a href="#">Triple Truffle Trotters</a></li>
+                                    <li><p>Le menu du jour change quotidiennement</p></li>
+                                    <li><p>N'hésitez pas à visiter notre <a style="color: rgb(179, 16, 16);" target="_blank" href="https://www.facebook.com/La-Fregate-279235209380378/">Facebook</a></p></li>
+                                    <li><p>Pour connaitre nos petits plats</p></li>
+                                    <li><p>Sans vous déplacer</p></li>
                                 </ul>
                             </div>
                             <!-- end footer-box-b -->
@@ -62,17 +42,17 @@
                                 <h3>Contact Us</h3>
                                 <p>
                                     <i class="fa fa-map-signs" aria-hidden="true"></i>
-                                    <span>6 rue des inconnu, 14600, Honfleur</span>
+                                    <span>17 Rue des Quatre Francs, 14600 La Rivière-Saint-Sauveur</span>
                                 </p>
                                 <p>
                                     <i class="fa fa-mobile" aria-hidden="true"></i>
                                     <span>
-									02.31.xx.xx.xx
-								</span>
+								    	<a href="tel:0231876055">02 31 87 60 55</a> 
+								    </span>
                                 </p>
                                 <p>
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <span><a href="#">support@xxxxxx.com</a></span>
+                                    <span><a href="mailto:la-fregate@orange.fr">la-fregate@orange.fr</a></span>
                                 </p>
                             </div>
                             <!-- end footer-box-c -->
@@ -80,16 +60,13 @@
                         <!-- end col -->
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="footer-box-d">
-                                <h3>Opening Hours</h3>
+                                <h3>Horaires d'ouverture</h3>
 
                                 <ul>
                                     <li>
-                                        <p>Monday - Thursday </p>
-                                        <span> 11:00 AM - 9:00 PM</span>
-                                    </li>
-                                    <li>
-                                        <p>Friday - Saturday </p>
-                                        <span>  11:00 AM - 5:00 PM</span>
+                                        <p>Du Mardi au Samedi </p>
+                                        <span> 12h - 14h</span>
+                                        <span> 19h - 21h30</span>
                                     </li>
                                 </ul>
                             </div>
@@ -107,6 +84,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <h6 class="copy-title"> Copyright &copy;  <a href="#" target="_blank"></a> </h6>
+                            <a href="#">Mentions légales</a>
                         </div>
                     </div>
                     <!-- end row -->
@@ -130,6 +108,7 @@
             <a title="moderate-green" class="switcher moderate-green-bg"></a>
             <a title="vivid-yellow" class="switcher vivid-yellow-bg"></a>
             <a title="black" class="switcher black-bg"></a>
+            <a title="test-color" class="switcher test-color-bg"></a>
         </div>
     </section> 
     <script>
@@ -170,7 +149,10 @@
 			jQuery('#changeable-colors').attr('href', stylesheet_directory_uri + '/assets/css/colors/' + title + '.css');				
 			return false;
 		});	
-
+        $("#closeButton").click(function () {
+        $("#ac-wrapper").css("display", "none");
+        });
     </script>
+   
 </body>
 </html>

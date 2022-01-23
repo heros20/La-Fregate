@@ -81,7 +81,7 @@
                                     <li><a href="#our_team">Notre team</a></li>
                                     <li><a href="#gallery">Gallerie</a></li>
                                     <li><a href="#reservation">Reservation</a></li>
-                                    <li><a href="#footer">Contactez-nous</a></li>
+                                    <li><a href="<?= esc_url(home_url('contact')) ?>">Contact</a></li>
                                 </ul>
                             </div>
                             <!-- end nav-collapse -->

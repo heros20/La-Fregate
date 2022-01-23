@@ -29,7 +29,7 @@ function my_custom_menu_page_reservation(){
     ON r.id_client = c.id
     ORDER BY r.created_at DESC";
     $reservations = $wpdb->get_results($sdl, ARRAY_A);
-    debug($reservations);
+    // debug($reservations);
     ?>
     <div class="wrap contact-wrap">
         <h1 class="wp-heading-inline">Reservation</h1>

@@ -66,7 +66,7 @@ get_header();
                         <div class="banner-cell">
                             <h1>Venez chez nous  <span class="typer" id="some-id" data-delay="200" data-delim=":" data-words="Entre ami(e)s:En familles:Entres collègues" data-colors="red"></span><span class="cursor" data-cursorDisplay="_" data-owner="some-id"></span></h1>
                             <h2>Restaurant La Fregate </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy nibh euismod</p>
+                            
                             <div class="book-btn">
                                 <a href="#reservation" class="table-btn hvr-underline-from-center">Réservez une table</a>
                             </div>
@@ -85,19 +85,27 @@ get_header();
         <!-- end container -->
     </div>
     <!-- end banner -->
-
+<div id="ac-wrapper" style='display:none'>
+    <div id="popup">
+        <center>
+             <h2>Votre réservation à bien été pris en compte, vous recevrez une confirmation par mail.</h2>  
+             <p id="closeButton">X</p>
+        </center>
+    </div>
+</div>
     <div id="about" class="about-main pad-top-100 pad-bottom-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <h2 class="block-title"> À propos </h2>
-                        <h3>IT STARTED, QUITE SIMPLY, LIKE THIS...</h3>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia, nostrud exercitation ullamco. </p>
-
-                        <p> Aenean commodo ligula eget dolor aenean massa. Cum sociis nat penatibu set magnis dis parturient montes, nascetur ridiculus mus. quam felisorat, ultricies nec, Aenean commodo ligula eget dolor penatibu set magnis is parturient montes, nascetur ridiculus mus. quam felisorat, ultricies nec, pellentesque eu, pretium quis, sem. quat massa quis enim. Donec vitae sapien ut libero venenatis fauci Nullam quis ante. Etiam sit amet rci eget eros. </p>
-
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia, nostrud exercitation ullamco. </p>
+                        <h3>Restaurant moderne, accueil sympa et chaleureux .</h3>
+                        <p>Du choix sur la carte.</p>
+                        <p>Produits de la mer achetés directement chez le maraîcher.</p>
+                        <p>Viande achetée chez le producteur.</p>
+                        <p>Equipe jeune et dynamique.</p>
+                        <p>Parking facile d'accès.</p>
+                        <p>Formule le midi : entrée + plat + dessert</p>
                     </div>
                 </div>
                 <!-- end col -->
@@ -122,7 +130,7 @@ get_header();
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
                         <h2 class="block-title color-white text-center"> Menu du jour: </h2>
-                        <h5 class="title-caption text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia,nostrud exercitation ullamco. </h5>
+                        <h5 class="title-caption text-center">Chaque jour, un nouveau menu, retrouvez le ici au restaurant la Fregate!</h5>
                     </div>
                     <div class="special-box">
                         <div id="owl-demo">
@@ -170,7 +178,7 @@ get_header();
                         <h2 class="block-title text-center">
 						Notre carte 	
 					</h2>
-                        <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                        <p class="title-caption text-center">Retrouver ici l'intégralité de la carte de notre restaurant la Fregate!</p>
                     </div>
                     <div class="tab-menu">
                         <div class="slider slider-nav">
@@ -308,7 +316,8 @@ get_header();
                         <h2 class="block-title text-center">
 						Notre équipe	
 					</h2>
-                        <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                        <p class="title-caption text-center">Vous souhaitez connaitre le visage de celui qui cuisine pour vous à la Fregate?
+                        <br>Retrouvez-le ci-dessous !</p>
                     </div>
                     <div class="team-box">
 
@@ -362,7 +371,7 @@ get_header();
                         <h2 class="block-title text-center">
 						Gallerie d'image	
 					</h2>
-                        <p class="title-caption text-center">There are many variations of passages of Lorem Ipsum available </p>
+                        <p class="title-caption text-center">Ci-dessous, les plats et divers que notre chef a préparés dans notre restaurant : la Fregate</p>
                     </div>
                     <div class="gal-container clearfix">
                         <?php
@@ -421,8 +430,10 @@ get_header();
 						Reservations			
 					</h2>
                         </div>
-                        <h4 class="form-title">BOOKING FORM</h4>
-                        <p>PLEASE FILL OUT ALL REQUIRED* FIELDS. THANKS!</p>
+                        <h4 class="form-title">Formulaire de réservation</h4>
+                        <p>Vous pouvez, si vous le souhaitez, réserver une table dans notre restaurant en quelques clics!
+                        <br> veillez à bien remplir les champs avant de valider. 
+                        </p>
 
                         <?php
                         $errors = array();
@@ -474,6 +485,19 @@ get_header();
                                     )
                                 );
                                 $success = true;
+                                ?>
+                                     <script type="text/javascript">
+                                        function PopUp(hideOrshow) {
+                                        if (hideOrshow == 'hide') document.getElementById('ac-wrapper').style.display = "none";
+                                        else document.getElementById('ac-wrapper').removeAttribute('style');
+                                        }
+                                        window.onload = function () {
+                                            setTimeout(function () {
+                                                PopUp('show');
+                                            }, 0);
+                                        }
+                                    </script>
+                                <?php
                             }
                         }
                         
@@ -482,9 +506,9 @@ get_header();
                                  <p>Merci d'avoir réservé, nous vous confirmerons celle-ci dans les plus brefs délais</p>
                             </div>
                             <?php $message = "Nouvelle reservation \r\n au nom de : ".$_POST['nom']."\r\n nombre de couvert : ".$_POST['nbrecouvert']."\r\n reservation le : ".date('d/m/Y  H:i',strtotime($_POST['date']));
-                                mail('heros40@hotmail.fr', 'Reservation Croq art cafe', $message);
+                                mail('heros40@hotmail.fr', 'Reservation La Fregate', $message);
                                 $messageClient = "Votre reservation a bien ete transmise au restaurant";
-                                mail($_POST['email'], 'Reservation Croq art cafe', $messageClient);
+                                mail($_POST['email'], 'Reservation La Fregate', $messageClient);
                             ?>
                             
                         <?php } else { ?>
@@ -517,6 +541,8 @@ get_header();
                                         <option value="9">9</option>
                                         <option value="10">10</option>
                                     </select>
+                                    <p><span class="error"><?php if (!empty($errors['nbrecouvert'])) {echo $errors['nbrecouvert'];  } ?><span></p>
+
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

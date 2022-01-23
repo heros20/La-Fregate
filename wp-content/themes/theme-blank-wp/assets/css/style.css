@@ -429,8 +429,11 @@ html, body{ height: 100%; }
 	font-family: 'Roboto', sans-serif;
 	font-size:18px;
 	color:#ccc;
-	padding-bottom:35px;
+    padding: 12px;
 	margin:0px;
+}
+.banner-text .banner_div_p{
+    b
 }
 
 .book-btn a{
@@ -1681,8 +1684,6 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
     font-size: 20px;
     line-height: 23px;
     margin-right: 2px;
-    height: 25px;
-    width: 25px;
     border-radius: 50%;
     background-color: transparent;
     color: #6f6f6f;
@@ -1906,12 +1907,56 @@ textarea:focus, input:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
 .black-bg{
 	background: black;
 }
-
+.test-color-bg{
+    background: #d66c09;
+}
 .flex_row{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
+.header-static{
+    background: rgb(29, 35, 39);
+}
+.footer-static{
+    background: rgb(29, 35, 39);
+}
 
+textarea{
+    width: 100%;
+    border: 2px dotted #ccc;
+    background: #f5f5f5;
+    color: #202020;
+    text-transform: capitalize;
+    border-radius: 4px;
+    opacity: 1;
+}
+.marginTop{
+    margin-top: 20px;
+}
+.error{
+    color: rgb(156, 3, 3);
+}
 
+#ac-wrapper{
+    z-index: 50;
+    position: absolute;
+    top: 20%;
+    background: white;
+    padding: 45px;
+    border-radius: 5px;
+    box-shadow: 21px 16px 30px black;
+    left: 50%; 
+    transform: translate(-50%); 
+}
+#closeButton{
+    position: absolute;
+    top: 3%;
+    right: 1%;
+    background: rgb(179, 179, 179);
+    padding: 5px;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+}

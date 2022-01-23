@@ -19,11 +19,16 @@ function my_custom_menu_page_moderation(){
         $id = $_GET['id'];
         global $wpdb;
         $table = $wpdb->prefix.'reservation';
+        $table2 = $wpdb->prefix.'client';
         $sdl =  "SELECT * FROM $table WHERE id = $id ";
+        $sdl2 =  "SELECT * FROM $table2 WHERE id = $id ";
         $reservations = $wpdb->get_results($sdl, ARRAY_A);
+        $clients = $wpdb->get_results($sdl2, ARRAY_A);
         $adminUrl = admin_url().'admin.php?page=custompage_moderation&id='.$id;
         $errors = array();
         $success = false;
+     
+
         if (!empty($_POST['submitted'])) {
             $valid = failleXSS('valid');
             $errors = validSelect($errors,'valid');
@@ -40,8 +45,8 @@ function my_custom_menu_page_moderation(){
                         <p>La modification a echouée</p>
                     <?php }
                     $validationClient = "Madame, Monsieur,
-                    Votre réservation a été confirmé, le restaurant la Fregate vous attends !";
-                    mail($_POST['email'], 'Reservation La Fregate', $validationClient); 
+                    Votre réservation a été confirmé, le restaurant la Fregate vous attends";
+                    mail($clients[0]['email'], 'Reservation La Fregate', $validationClient); 
                 }elseif ($_POST['valid'] === 'supprimer') {
                     $wpdb->delete( $table, array( 'id' => $id ) );
                 }
@@ -54,15 +59,16 @@ function my_custom_menu_page_moderation(){
                     ) );
                     $refusClient = "Madame, Monsieur,
                     je vous informe que votre réservation a été refusé, le restaurant affiche complet, n'hésitez pas à nous contacter pour plus d'information, à bientôt à la Fregate !";
-                    mail($_POST['email'], 'Reservation La Fregate', $refusClient); 
+                    mail($clients[0]['email'], 'Reservation La Fregate', $refusClient); 
                 }
                 
                 $success = true;
-                echo "<script>location.href = 'https://localhost/pack_wordpress/fregates/wp-admin/admin.php?page=custompage_reservation';</script>";
+                echo "<script>location.href = 'https://bay-key.fr/wp-admin/admin.php?page=custompage_reservation';</script>";
                 // wp_redirect('admin.php?page=custompage_reservation');
             }
         }
     }
+    
 ?>
 <form style="text-align:center;margin-top:200px;" action="" method="POST" novalidate>
     <div>
